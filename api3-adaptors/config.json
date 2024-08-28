@@ -6,36 +6,32 @@
             "pairName": "COMP/USD",
             "proxyAddress": "0xe3ECd26173d9E08261db4DE2e8690AA303b0339c",
             "description": "COMP/USD Price Feed",
-            "decimals": 18
+            "decimals": 18,
+            "supplyCap": "500000e18"
+
         },
         {
             "assetName": "Wrapped Bitcoin",
             "assetSymbol": "WBTC",
             "pairName": "WBTC/USD",
-            "proxyAddress": "0x73AB44615772a0d31dB48A87d7F4F81a3601BceB",
+            "proxyAddress": "0xF33979e0751687500F4dB02B9669837744d4f478",
             "description": "WBTC/USD Price Feed",
-            "decimals": 8
+            "decimals": 8,
+            "supplyCap": "35000e8"
   
         },
         {
             "assetName": "Wrapped Etherereum",
             "assetSymbol": "WETH",
             "pairName": "WETH/USD",
-            "proxyAddress": "0xa47Fd122b11CdD7aad7c3e8B740FB91D83Ce43D1",
+            "proxyAddress": "0x1A4eE81BBbb479f3923f22E315Bc2bD1f6d5d180",
             "description": "WETH/USD Price Feed",
-            "decimals": 18
-        },
-        {
-            "assetName": "Mock Arb",
-            "assetSymbol": "ARB",
-            "pairName": "ARB/USD",
-            "proxyAddress": "0x10D9b183FCcFDA464e9fbfC2D373A70f6AA3B1Fe",
-            "description": "ARB/USD Price Feed",
-            "decimals": 18
+            "decimals": 18,
+            "supplyCap": "1000000e18"
         }
     ],
-    "EthUsdProxyAddress": "0xa47Fd122b11CdD7aad7c3e8B740FB91D83Ce43D1",
-    "UsdcUsdProxyAddress": "0xa790a882bB695D0286C391C0935a05c347290bdB",
+    "EthUsdProxyAddress": "0x1A4eE81BBbb479f3923f22E315Bc2bD1f6d5d180",
+    "UsdcUsdProxyAddress": "0xe8a3E41e620fF07765651a35334c9B6578790ECF",
     "network": {
           "chainId": 11155111,
           "name": "Sepolia",

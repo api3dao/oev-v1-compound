@@ -18,7 +18,7 @@ module.exports = {
     }
    },
   etherscan: {
-    apiKey: ""
+    apiKey: process.env.ETHERSCAN_KEY
   },
   solidity: {
     version: '0.8.17',

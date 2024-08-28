@@ -35,13 +35,12 @@ let configuration = {
 
 for (let asset of references.assets) {
   configuration.assets[asset.assetSymbol] = {
-    "address": asset.assetAddress,
     "priceFeed": asset.EACAggregatorProxy,
     "decimals": asset.decimals,
     "borrowCF": 0.75,
     "liquidateCF": 0.81,
     "liquidationFactor": 0.93,
-    "supplyCap": "0e18"
+    "supplyCap": asset.supplyCap
   };
 }
 

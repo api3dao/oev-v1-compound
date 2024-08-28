@@ -1,19 +1,20 @@
 import baseRelationConfig from '../../relations';
+import fs from 'fs';
+import path from 'path';
+
+const configuration = JSON.parse(fs.readFileSync(path.join(__dirname, 'configuration.json'), 'utf8'));
+
+let priceFeeds = {};
+
+for (let assetName in configuration.assets) {
+  priceFeeds[configuration.assets[assetName].priceFeed] = {
+    artifact: 'contracts/IPriceFeed.sol:IPriceFeed'
+  };
+}
 
 export default {
   ...baseRelationConfig,
-  // USDC / USD price feed
-  '0x683Ae71AFB633385e64a7968435210d1aadbe29D': {
-    artifact: 'contracts/IPriceFeed.sol:IPriceFeed'
-  },
-  // WBTC / USD price feed
-  '0x5EF17889992f6d9daCEb03db9822AA5b6fDd6713': {
-    artifact: 'contracts/IPriceFeed.sol:IPriceFeed'
-  },
-  // WETH / USD price feed
-  '0x132e2459498CFfb3f767d508066bf1dF0549D59C': {
-    artifact: 'contracts/IPriceFeed.sol:IPriceFeed'
-  },
+  ...priceFeeds,
   fxRoot: {
     relations: {
       stateSender: {

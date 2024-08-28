@@ -31,6 +31,7 @@ let frontendConfig = {
     },
     "deployed-contracts": {
       ...aliases,
+      USDC: configuration.baseTokenAddress,
       priceFeeds: {},
     },
   },

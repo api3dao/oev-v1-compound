@@ -61,7 +61,7 @@ const {
   OPTIMISMSCAN_KEY,
   INFURA_KEY,
   QUICKNODE_KEY,
-  MNEMONIC = '',
+  MNEMONIC = process.env['MNEMONIC'],
   REPORT_GAS = 'false',
   NETWORK_PROVIDER = '',
   GOV_NETWORK_PROVIDER = '',
