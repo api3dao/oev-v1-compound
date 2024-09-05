@@ -38,11 +38,13 @@ import baseWethRelationConfigMap from './deployments/base/weth/relations';
 import baseUsdcRelationConfigMap from './deployments/base/usdc/relations';
 import baseGoerliRelationConfigMap from './deployments/base-goerli/usdc/relations';
 import baseGoerliWethRelationConfigMap from './deployments/base-goerli/weth/relations';
+import baseSepoliaUsdcRelationConfigMap from './deployments/base-sepolia/usdc/relations';
 import lineaGoerliRelationConfigMap from './deployments/linea-goerli/usdc/relations';
 import optimismRelationConfigMap from './deployments/optimism/usdc/relations';
 import optimismUsdtRelationConfigMap from './deployments/optimism/usdt/relations';
 import scrollGoerliRelationConfigMap from './deployments/scroll-goerli/usdc/relations';
 import scrollRelationConfigMap from './deployments/scroll/usdc/relations';
+import { sep } from 'path';
 
 task('accounts', 'Prints the list of accounts', async (taskArgs, hre) => {
   for (const account of await hre.ethers.getSigners()) console.log(account.address);
@@ -108,6 +110,7 @@ const networkConfigs: NetworkConfig[] = [
   { network: 'rinkeby', chainId: 4 },
   { network: 'goerli', chainId: 5 },
   { network: 'sepolia', chainId: 11155111, url: `https://eth-sepolia.g.alchemy.com/v2/wUdYz77ad_bx5C_95iAERCYCQ7NtCKKl`},
+  { network: 'base-sepolia', chainId: 84532, url: `https://base-sepolia.blockpi.network/v1/rpc/public`},
   {
     network: 'polygon',
     chainId: 137,
@@ -242,6 +245,7 @@ const config: HardhatUserConfig = {
       rinkeby: ETHERSCAN_KEY,
       goerli: ETHERSCAN_KEY,
       sepolia: ETHERSCAN_KEY,
+      'base-sepolia': ETHERSCAN_KEY,
       // Avalanche
       avalanche: SNOWTRACE_KEY,
       avalancheFujiTestnet: SNOWTRACE_KEY,
@@ -344,6 +348,9 @@ const config: HardhatUserConfig = {
       sepolia: {
         usdc: sepoliaUsdcRelationConfigMap,
         weth: sepoliaWethRelationConfigMap
+      },
+      'base-sepolia': {
+        usdc: baseSepoliaUsdcRelationConfigMap
       },
       mumbai: {
         usdc: mumbaiRelationConfigMap

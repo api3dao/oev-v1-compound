@@ -4,44 +4,47 @@
             "assetName": "Compound",
             "assetSymbol": "COMP",
             "pairName": "COMP/USD",
-            "proxyAddress": "0xe3ECd26173d9E08261db4DE2e8690AA303b0339c",
+            "proxyAddress": "0x6527eb02Ec508C3c8aF39B4258f90705a5e00394",
             "description": "COMP/USD Price Feed",
             "decimals": 18,
-            "supplyCap": "500000e18"
+            "supplyCap": "500000e18",
+            "deployERC20": false
 
         },
         {
             "assetName": "Wrapped Bitcoin",
             "assetSymbol": "WBTC",
             "pairName": "WBTC/USD",
-            "proxyAddress": "0xF33979e0751687500F4dB02B9669837744d4f478",
+            "proxyAddress": "0xc64C5fAafd21E04614E14aB3B91034b32164291a",
             "description": "WBTC/USD Price Feed",
             "decimals": 8,
-            "supplyCap": "35000e8"
+            "supplyCap": "35000e8",
+            "deployERC20": false
   
         },
         {
             "assetName": "Wrapped Etherereum",
             "assetSymbol": "WETH",
             "pairName": "WETH/USD",
-            "proxyAddress": "0x1A4eE81BBbb479f3923f22E315Bc2bD1f6d5d180",
+            "proxyAddress": "0xB7ce7B052836c69EaB40a1D5C0b2baeE8eFB86C7",
             "description": "WETH/USD Price Feed",
             "decimals": 18,
-            "supplyCap": "1000000e18"
+            "supplyCap": "1000000e18",
+            "deployERC20": false
         }
     ],
-    "EthUsdProxyAddress": "0x1A4eE81BBbb479f3923f22E315Bc2bD1f6d5d180",
-    "UsdcUsdProxyAddress": "0xe8a3E41e620fF07765651a35334c9B6578790ECF",
+    "EthUsdProxyAddress": "0xB7ce7B052836c69EaB40a1D5C0b2baeE8eFB86C7",
+    "UsdcUsdProxyAddress": "0x5fb6E1fBCB474E1aAfFb7C2104d731633D8c3D63",
     "network": {
-          "chainId": 11155111,
-          "name": "Sepolia",
-          "rpc": "https://ethereum-sepolia.blockpi.network/v1/rpc/public",
+          "chainId": 84532,
+          "name": "base-sepolia",
+          "rpc": "https://sepolia.base.org",
           "nativeCurrency" : {
               "name": "Ether",
               "symbol": "ETH",
               "wrapped": "WETH",
               "decimals": 18
           },
-          "explorerLink": "https://etherscan.io/"
+          "explorerLink": "https://basescan.org/"
     }
   }

@@ -1,14 +1,16 @@
 const fs = require("fs");
 
-// Read and parse the aliases.json and configuration.json files
-const aliases = JSON.parse(
-  fs.readFileSync("deployments/sepolia/usdc/aliases.json", "utf8")
-);
-const configuration = JSON.parse(
-  fs.readFileSync("deployments/sepolia/usdc/configuration.json", "utf8")
+const config = JSON.parse(
+  fs.readFileSync("api3-adaptors/config.json", "utf8")
 );
 
-// Define the base frontendConfig
+const aliases = JSON.parse(
+  fs.readFileSync(`deployments/${config.network.name}/usdc/aliases.json`, "utf8")
+);
+const configuration = JSON.parse(
+  fs.readFileSync(`deployments/${config.network.name}/usdc/configuration.json`, "utf8")
+);
+
 let frontendConfig = {
   currentMarket: "compound",
   compound: {
@@ -16,17 +18,11 @@ let frontendConfig = {
       baseToken: configuration.baseTokenAddress,
       rewardToken: configuration?.assets?.[configuration.rewardToken].address,
       network: {
-        chainId: 11155111,
-        name: "ETH Sepolia",
-        rpc:
-          "https://rough-damp-scion.ethereum-sepolia.quiknode.pro/cc005555675ae91caad17e851ac5061e12d61f4a/",
-        nativeCurrency: {
-          name: "Ether",
-          symbol: "ETH",
-          wrapped: "WETH",
-          decimals: 18,
-        },
-        explorerLink: "https://sepolia.etherscan.io",
+        chainId: config.network.chainId,
+        name: config.network.name,
+        rpc: config.network.rpc,
+        nativeCurrency: config.network.nativeCurrency,
+        explorerLink: config.network.explorerLink,
       },
     },
     "deployed-contracts": {
@@ -37,7 +33,6 @@ let frontendConfig = {
   },
 };
 
-// Iterate over the assets in the configuration file
 for (let assetSymbol in configuration.assets) {
   // Add the asset to the frontendConfig
   // frontendConfig.config.assets.push({

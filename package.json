@@ -44,7 +44,7 @@
     "liquidation-bot": "hardhat run scripts/liquidation_bot/index.ts",
     "adaptors:build": "cd api3-adaptors && yarn",
     "adaptors:deploy": "cd api3-adaptors && yarn deploy:adaptors",
-    "protocol:deploy": "hardhat deploy --network sepolia --deployment usdc --no-verify-impl",
+    "protocol:deploy": "hardhat deploy --network $NETWORK --deployment usdc --no-verify-impl",
     "frontend:codegen": "git clone -b compound-v3 https://github.com/api3-ecosystem/api3-aave-ui.git  && node generateFrontendConfiguration.js",
     "frontend:dev": "cd api3-aave-ui && yarn && yarn dev",
     "frontend:build": "cd api3-aave-ui && yarn && yarn build",

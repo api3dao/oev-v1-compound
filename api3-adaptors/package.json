@@ -29,7 +29,7 @@
     },
     "scripts": {
       "coverage": "solidity-coverage",
-      "deploy:adaptors": "hardhat deploy --config hardhat.config.js --network custom --tags deployDapiAdapter && node generateProtocolConfiguration.js",
+      "deploy:adaptors": "hardhat deploy --config hardhat.config.js --network custom --tags deployDapiAdapter && node copy-scripts.js &&node generateProtocolConfiguration.js",
       "verify": "hardhat verify"
     }
   }

@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 const references = JSON.parse(fs.readFileSync('references.json', 'utf8'));
+const config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
 // base config
 let configuration = {
@@ -44,4 +45,4 @@ for (let asset of references.assets) {
   };
 }
 
-fs.writeFileSync('../deployments/sepolia/usdc/configuration.json', JSON.stringify(configuration, null, 2));
+fs.writeFileSync(`../deployments/${config.network.name}/usdc/configuration.json`, JSON.stringify(configuration, null, 2));

@@ -1,1 +1,7 @@
-{}
+{
+    "comet": "0x4d67AD9eBe2E56797511EcffC20cD9Fee5aea083",
+    "configurator": "0x162Ac5da3f9CF3F13B51549D37FFd8014573067c",
+    "rewards": "0x24eDf719042Ba7543cACdA62CB703654eEb3c38E",
+    "fauceteer": "0xcc5e68B787B9b53FE77e749e588F4Aee15AFeB96",
+    "bulker": "0xe1cF7C4e2Ee8d19FAe319AAc5D05456EDAB15B12"
+}
