@@ -27,6 +27,7 @@ Make a `.env` file in the root and add your mnemonic. This wallet needs to be fu
 
 ```bash
 ETHERSCAN_KEY=""
+BASESCAN_KEY="api-key"
 SNOWTRACE_KEY="api-key"
 INFURA_KEY="api-key"
 POLYGONSCAN_KEY="api-key"

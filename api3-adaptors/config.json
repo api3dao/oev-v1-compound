@@ -1,33 +1,40 @@
 {
     "assets": [
         {
-            "assetName": "Compound",
-            "assetSymbol": "COMP",
-            "pairName": "COMP/USD",
-            "proxyAddress": "0x6527eb02Ec508C3c8aF39B4258f90705a5e00394",
-            "description": "COMP/USD Price Feed",
+            "address": "0x774eD9EDB0C5202dF9A86183804b5D9E99dC6CA3",
+            "assetName": "Coinbase Wrapped Staked ETH",
+            "assetSymbol": "cbETH",
+            "pairName": "cbETH/USD",
+            "proxyAddresses": [
+                "0x3233E4507a44aDbd145b81DDF5B08d67D8D92A94",
+                "0xB7ce7B052836c69EaB40a1D5C0b2baeE8eFB86C7"
+            ],
+            "description": "cbETH/USD Price Feed",
             "decimals": 18,
             "supplyCap": "500000e18",
             "deployERC20": false
-
         },
         {
-            "assetName": "Wrapped Bitcoin",
-            "assetSymbol": "WBTC",
-            "pairName": "WBTC/USD",
-            "proxyAddress": "0xc64C5fAafd21E04614E14aB3B91034b32164291a",
-            "description": "WBTC/USD Price Feed",
-            "decimals": 8,
-            "supplyCap": "35000e8",
-            "deployERC20": false
-  
-        },
-        {
-            "assetName": "Wrapped Etherereum",
+            "address": "0x4200000000000000000000000000000000000006",
+            "assetName": "Wrapped Ether",
             "assetSymbol": "WETH",
             "pairName": "WETH/USD",
             "proxyAddress": "0xB7ce7B052836c69EaB40a1D5C0b2baeE8eFB86C7",
             "description": "WETH/USD Price Feed",
+            "decimals": 18,
+            "supplyCap": "1000000e18",
+            "deployERC20": false
+        },
+        {
+            "address": "0x224e12002571C092F360bb54FC1AFFAf8a28aC4E",
+            "assetName": "Wrapped liquid staked Ether 2.0",
+            "assetSymbol": "wstETH",
+            "pairName": "wstETH/USD",
+            "proxyAddresses": [
+                "0xCcFC77425a3bBDaa2c1dda90b91764f829bd1702",
+                "0x230231fEF3125B87c9Edb180fbF6a26bDC753478"
+            ],
+            "description": "wstETH/USD Price Feed",
             "decimals": 18,
             "supplyCap": "1000000e18",
             "deployERC20": false
@@ -36,15 +43,15 @@
     "EthUsdProxyAddress": "0xB7ce7B052836c69EaB40a1D5C0b2baeE8eFB86C7",
     "UsdcUsdProxyAddress": "0x5fb6E1fBCB474E1aAfFb7C2104d731633D8c3D63",
     "network": {
-          "chainId": 84532,
-          "name": "base-sepolia",
-          "rpc": "https://sepolia.base.org",
-          "nativeCurrency" : {
-              "name": "Ether",
-              "symbol": "ETH",
-              "wrapped": "WETH",
-              "decimals": 18
-          },
-          "explorerLink": "https://basescan.org/"
+        "chainId": 84532,
+        "name": "base-sepolia",
+        "rpc": "https://sepolia.base.org",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "wrapped": "WETH",
+            "decimals": 18
+        },
+        "explorerLink": "https://basescan.org/"
     }
-  }
+}
