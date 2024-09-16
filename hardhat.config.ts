@@ -110,7 +110,7 @@ const networkConfigs: NetworkConfig[] = [
   { network: 'rinkeby', chainId: 4 },
   { network: 'goerli', chainId: 5 },
   { network: 'sepolia', chainId: 11155111, url: `https://eth-sepolia.g.alchemy.com/v2/wUdYz77ad_bx5C_95iAERCYCQ7NtCKKl`},
-  { network: 'base-sepolia', chainId: 84532, url: `https://base-sepolia.blockpi.network/v1/rpc/public`},
+  { network: 'base-sepolia', chainId: 84532, url: `https://sepolia.base.org`},
   {
     network: 'polygon',
     chainId: 137,

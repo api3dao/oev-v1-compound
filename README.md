@@ -23,16 +23,16 @@ For now, only 3 assets are supported. Do not add any more assets in the config.
 
 *NOTE: It is advisable to use a private RPC for the deployments. If the protocol deployment fails, try using another RPC.*
 
-Make a `.env` file in the root and add your mnemonic. This wallet needs to be funded to cover the gas costs for the deployments. Also add the other environment variables in the `.env` file. Make sure to add the `ETHERSCAN_KEY`, you can leave the other keys empty.
+Make a `.env` file in the root and add your mnemonic. This wallet needs to be funded to cover the gas costs for the deployments. Also add the other environment variables in the `.env` file. Make sure to add the `ETHERSCAN_KEY`(FOR MAINNET).
 
 ```bash
 ETHERSCAN_KEY=""
-SNOWTRACE_KEY=""
-INFURA_KEY=""
-POLYGONSCAN_KEY=""
-ARBISCAN_KEY=""
-LINEASCAN_KEY=""
-OPTIMISMSCAN_KEY=""
+SNOWTRACE_KEY="api-key"
+INFURA_KEY="api-key"
+POLYGONSCAN_KEY="api-key"
+ARBISCAN_KEY="api-key"
+LINEASCAN_KEY="api-key"
+OPTIMISMSCAN_KEY="api-key"
 MNEMONIC=""
 ```
 
@@ -48,6 +48,12 @@ After deploying the adaptors, you can deploy the protocol. Install all the packa
 
 ```bash
 yarn
+```
+
+Build all the packages:
+
+```bash
+yarn build
 ```
 
 Run the following command to deploy the protocol:

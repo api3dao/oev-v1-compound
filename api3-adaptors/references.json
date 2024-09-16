@@ -4,24 +4,24 @@
       "assetSymbol": "COMP",
       "pairName": "COMP/USD",
       "decimals": 18,
-      "EACAggregatorProxy": "0xF834eA717d70B7BC1E0e385CB9DcdD7385AA6acA",
+      "EACAggregatorProxy": "0x8F9f18366bFbDC24493dCeD668c830Bc2AbBF60d",
       "supplyCap": "500000e18"
     },
     {
       "assetSymbol": "WBTC",
       "pairName": "WBTC/USD",
       "decimals": 8,
-      "EACAggregatorProxy": "0xBcdc2e9381376AC54b5484CA213fbA266A5Da15C",
+      "EACAggregatorProxy": "0xfd4DDbfDc87c6FbCc246202fCc14613A69eC9322",
       "supplyCap": "35000e8"
     },
     {
       "assetSymbol": "WETH",
       "pairName": "WETH/USD",
       "decimals": 18,
-      "EACAggregatorProxy": "0xFBD69fC0120Ed460E70C637Acd31f68AF8ecaB7b",
+      "EACAggregatorProxy": "0x7Ef0ed9C5747D73e239AFD757358Cbd4bCaa03f0",
       "supplyCap": "1000000e18"
     }
   ],
-  "USDC": "0x01c3a1E1494ca453aBD19Bbf9f91a25f91264686",
-  "EACAggregatorProxyUSDC": "0xBc2f0b462D4B43A4ee452f26635EC582844a3C13"
+  "USDC": "0xccDacB3406ac097A4F4A23E8c6747BaE55d0c3d1",
+  "EACAggregatorProxyUSDC": "0x87a6b510580af4aDf9c42d64FBC02E6185aebcd2"
 }
