@@ -1,0 +1,40 @@
+#__next {
+  display: grid;
+  grid-auto-rows: auto 1fr auto; /* main fills up available space + push the footer down */
+  min-height: 100vh; /* be at least a full viewport height */
+}
+
+#root {
+  display: contents;
+}
+
+inner-column,
+.inner-column {
+  display: block;
+  width: 98%;
+  max-width: 1100px; /* could be a variable in settings */
+  max-width: 1400px; /* could be a variable in settings */
+
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--space-xl) var(--space-s); /* a loose default */
+}
+
+:is(inner-column, .inner-column).wide {
+  max-width: 1400px; /* could be a variable in settings */
+}
+
+:is(inner-column, .inner-column).narrow {
+  max-width: 500px; /* could be a variable in settings */
+  /* padding: var(--space-l); */
+}
+
+:is(inner-column, .inner-column).full {
+  max-width: 100%;
+}
+
+/*.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 5;
+}*/

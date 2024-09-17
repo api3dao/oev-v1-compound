@@ -1,0 +1,50 @@
+{
+  "currentMarket": "compound",
+  "compound": {
+    "config": {
+      "baseToken": "0x149e2e6348A7641373C4288fc6065446c99e87F2",
+      "network": {
+        "chainId": 11155111,
+        "name": "ETH Sepolia",
+        "rpc": "https://rough-damp-scion.ethereum-sepolia.quiknode.pro/cc005555675ae91caad17e851ac5061e12d61f4a/",
+        "nativeCurrency": {
+          "name": "Ether",
+          "symbol": "ETH",
+          "wrapped": "WETH",
+          "decimals": 18
+        },
+        "explorerLink": "https://sepolia.etherscan.io"
+      }
+    },
+    "deployed-contracts": {
+      "comet": "0x606720e0109Da235c31CE7eF60ab2B6a2C7c4d65",
+      "comet:implementation": "0xc20D7de5D219776388313bb0B0Cd98990b7ee4C1",
+      "comet:implementation:implementation": "0x087DF2F83b5AD3E5b1c611D015385b47688d9B80",
+      "USDC": "0x149e2e6348A7641373C4288fc6065446c99e87F2",
+      "USDC:priceFeed": "0xB16d6e5b8FA4F7D30C80625f00fA7cc03C15D093",
+      "COMP": "0x748293ed983964255E68ffc54b60fc09C7A53D70",
+      "WBTC": "0xc311e1B80702477831dac8c42D62757cf0E5D94e",
+      "WETH": "0x896B2aD8DfB1719E239E075C0C271E5547b23Cbd",
+      "COMP:priceFeed": "0x647543D606C03fF5e2B0EaB90cABc154d8799c66",
+      "WBTC:priceFeed": "0x46D41173310c8DE12f478C6151626A316AfE7de3",
+      "WETH:priceFeed": "0x4381865577687d8b61bbC8369Fe8BfA1bb6B3D54",
+      "cometAdmin": "0x81b11367C34B7bE3603CB13b2dfBF6bDE85186c0",
+      "timelock": "0x2b1062cc72Bdb50c9aF60dB4EA49377b0C00831e",
+      "governor": "0xa15259712Dd58D80f6aadB22189a2624Ee05C09F",
+      "governor:implementation": "0x3CAA666514d17D22Ae2fC169e879B636400fB7d6",
+      "configurator": "0x639e76Fe741174F0b465bf745999a39F4DA3CaBC",
+      "configurator:implementation": "0x2E39530015E8Cf8E4AdE4EE7993BE1A39cfD2B9e",
+      "configuratorAdmin": "0x81b11367C34B7bE3603CB13b2dfBF6bDE85186c0",
+      "cometFactory": "0xD802E2565b37A06F981b112595240Ee00E1A7a41",
+      "rewards": "0x84554b6EDa9EA2e33b1E615850f842Fc72b1049d",
+      "fauceteer": "0x8E1AD0BE8314FEE7054b51d3c684f17cc57720aD",
+      "bulker": "0x26eb67f98d02B9B4FA5A53cB77976079A0712598",
+      "priceFeeds": {
+        "COMP": "0x647543D606C03fF5e2B0EaB90cABc154d8799c66",
+        "WBTC": "0x46D41173310c8DE12f478C6151626A316AfE7de3",
+        "WETH": "0x4381865577687d8b61bbC8369Fe8BfA1bb6B3D54",
+        "USDC": "0xB16d6e5b8FA4F7D30C80625f00fA7cc03C15D093"
+      }
+    }
+  }
+}

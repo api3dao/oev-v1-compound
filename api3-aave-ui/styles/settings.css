@@ -1,0 +1,228 @@
+:root {
+  /* Black and white */
+  --hue: 166;
+  --black: hsla(0, 0%, 1%, 1);
+  --white: hsla(var(--hue), 0%, 95%, 1);
+
+  --gray: hsla(var(--hue), 0%, 50%, 1);
+  --gray-light: color-mix(in hsl, var(--gray), var(--white));
+  --gray-lighter: color-mix(in hsl, var(--gray-light), var(--white));
+  --gray-dark: color-mix(in hsl, var(--gray), var(--black));
+  --gray-darker: color-mix(in hsl, var(--gray-dark), var(--black));
+  --gray-darkest: color-mix(in hsl, var(--gray-darker), var(--black));
+
+  --color: hsla(var(--hue), 64%, 69%, 1);
+
+  --color-dark: hsla(var(--hue), 51%, 46%, 1);
+  --color-darker: hsla(var(--hue), 47%, 27%, 1);
+  --color-darkest: hsla(var(--hue), 40%, 5%, 1);
+
+  --color-light: hsla(var(--hue), 65%, 75%, 1);
+  --color-lighter: hsla(var(--hue), 66%, 80%, 1);
+  --color-lightest: hsla(var(--hue), 64%, 85%, 1);
+
+  --highlight: hsla(calc(90 + var(--hue)), 34%, 54%, 1);
+
+  --highlight-light: hsla(calc(90 + var(--hue)), 34%, 66%, 1);
+  --highlight-lighter: hsla(calc(90 + var(--hue)), 34%, 77%, 1);
+  --highlight-lightest: hsla(calc(90 + var(--hue)), 34%, 90%, 1);
+
+  --highlight-dark: hsla(calc(90 + var(--hue)), 34%, 44%, 1);
+  --highlight-darker: hsla(calc(90 + var(--hue)), 34%, 34%, 1);
+  --highlight-darkest: hsla(calc(90 + var(--hue)), 34%, 10%, 1);
+
+  --accent: hsla(calc(60 + var(--hue)), 100%, 55%, 1);
+
+  --accent-light: hsla(calc(60 + var(--hue)), 100%, 65%, 1);
+  --accent-lighter: hsla(calc(60 + var(--hue)), 100%, 75%, 1);
+  --accent-lightest: hsla(calc(60 + var(--hue)), 100%, 85%, 1);
+
+  --accent-dark: hsla(calc(60 + var(--hue)), 100%, 45%, 1);
+  --accent-darker: hsla(calc(60 + var(--hue)), 100%, 35%, 1);
+  --accent-darkest: hsla(calc(60 + var(--hue)), 100%, 25%, 1);
+
+  --success: hsla(148, 76%, 41%, 1);
+  --warning: hsla(40, 100%, 55%, 1);
+  --error: hsla(15, 99%, 55%, 1);
+
+  --paper: var(--black);
+  --ink: var(--white);
+
+  /* Gradients */
+  --gradient-direction: 180deg;
+
+  --gradient-dark: linear-gradient(130deg, var(--gray-darker), var(--paper));
+
+  --gradient-light: linear-gradient(130deg, var(--white), var(--gray-light));
+
+  --gradient-radial-dark: var(
+    --Gradient-Gradient-On-chain,
+    radial-gradient(
+      208.44% 148.88% at 50% 0%,
+      rgba(217, 217, 217, 0.25) 0%,
+      rgba(0, 0, 0, 0) 45.83%,
+      rgba(245, 245, 245, 0.15) 100%
+    ),
+    #040606
+  );
+
+  --gradient-color: linear-gradient(130deg, var(--color), var(--highlight));
+
+  --gradient-color-light: linear-gradient(130deg, var(--ink), var(--color));
+
+  --gradient-green: linear-gradient(
+    var(--gradient-direction),
+    hsla(var(--hue), 100%, 68%, 0.4) 0%,
+    hsla(0, 0%, 1%, 0) 86.97%
+  );
+
+  --gradient-violet: linear-gradient(
+    var(--gradient-direction),
+    hsla(calc(90 + var(--hue)), 90%, 55%, 0.4) 0%,
+    hsla(0, 0%, 1%, 0) 100%
+  );
+
+  --gradient-blue: linear-gradient(
+    var(--gradient-direction),
+    hsla(calc(60 + var(--hue)), 100%, 66%, 0.4) 0%,
+    hsla(0, 0%, 1%, 0) 86.97%
+  );
+
+  --gradient-radial-green: radial-gradient(
+      90% 55% at 50% 0%,
+      hsla(var(--hue), 100%, 50%, 0.15),
+      hsla(0, 0%, 0%, 0) 81.77%,
+      hsla(0, 0%, 35%, 0.05) 99.48%
+    ),
+    #040606;
+
+  --gradient-radial-green-hover: radial-gradient(
+      208.44% 148.88% at 50% 0%,
+      hsla(var(--hue), 100%, 50%, 0.25) 0%,
+      hsla(0, 0%, 0%, 0) 45.83%,
+      hsla(0, 0%, 96%, 0.1) 100%
+    ),
+    #040606;
+
+  --gradient-radial-blue: radial-gradient(
+      90% 50% at 50% 0%,
+      hsla(calc(60 + var(--hue)), 100%, 50%, 0.2) 0%,
+      hsla(0, 0%, 0%, 0) 82.81%,
+      hsla(0, 0%, 35%, 0.08) 100%
+    ),
+    #040606;
+
+  --gradient-radial-blue-hover: radial-gradient(
+      208.44% 148.88% at 50% 0%,
+      hsla(calc(60 + var(--hue)), 100%, 50%, 0.25) 0%,
+      hsla(0, 0%, 0%, 0) 45.83%,
+      hsla(0, 0%, 96%, 0.1) 100%
+    ),
+    #040606;
+
+  --gradient-radial-violet: radial-gradient(
+      90% 65% at 50% 0%,
+      hsla(calc(90 + var(--hue)), 90%, 70%, 0.25) 0%,
+      hsla(0, 0%, 0%, 0) 83.33%,
+      hsla(0, 0%, 35%, 0.08) 100%
+    ),
+    #040606;
+
+  --gradient-radial-violet-hover: radial-gradient(
+      208.44% 148.88% at 50% 0%,
+      hsla(calc(90 + var(--hue)), 90%, 70%, 0.25) 0%,
+      hsla(0, 0%, 0%, 0) 45.83%,
+      hsla(0, 0%, 96%, 0.1) 100%
+    ),
+    #040606;
+
+  /* Backgrounds */
+
+  /* --checkers: url("@/assets/images/background/pattern-one.svg"); */
+
+  /* --diagnol: url("@/assets/images/background/pattern-diagnol.svg"); */
+  /* --points: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='hsla(256, 58%, 54%, 1.00)' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); */
+
+  /* --pattern-one: url("@/assets/images/background/pattern-one.svg");
+  --pattern-two: url("@/assets/images/background/pattern-two.svg");
+  --pattern-three: url("@/assets/images/background/pattern-three.svg");
+  --pattern-four: url("@/assets/images/background/pattern-four.svg"); */
+
+  /* Typography */
+
+  --typography: "!typography";
+  --font: Inter, sans-serif;
+
+  --step--2: clamp(0.39rem, calc(0.36rem + 0.15vw), 0.5rem);
+  --step--1: clamp(0.58rem, calc(0.54rem + 0.23vw), 0.75rem);
+  --step-0: clamp(0.95rem, calc(0.81rem + 0.34vw), 1.05rem);
+  --step-1: clamp(1.31rem, calc(1.21rem + 0.51vw), 1.69rem);
+  --step-2: clamp(1.97rem, calc(1.82rem + 0.76vw), 2.53rem);
+  --step-3: clamp(2.95rem, calc(2.72rem + 1.14vw), 3.8rem);
+  --step-4: clamp(4.43rem, calc(4.09rem + 1.72vw), 5.7rem);
+  --step-5: clamp(6.64rem, calc(6.13rem + 2.57vw), 8.54rem);
+
+  --weight-heavy: 700;
+  --weight-medium: 500;
+  --weight-light: 300;
+
+  /* Borders */
+  --line-width: 1px;
+  --corners: 0.5rem;
+
+  --border: var(--line-width) solid var(--gray);
+  --border-dark: var(--line-width) solid var(--gray-dark);
+  --border-light: var(--line-width) solid var(--ink);
+  --border-color: var(--line-width) solid var(--color);
+  --border-highlight: var(--line-width) solid var(--highlight);
+
+  /* Shadows */
+  --shadow-line-gap: var(--space-3xs);
+
+  --shadow: var(--highlight) 0px 0px 2em -0.625em;
+
+  --shadow-selected: 2px 2px 1px var(--highlight);
+
+  --spacing: "!spacing";
+
+  /* Space 3xs: 4px → 5px */
+  --space-3xs: clamp(0.25rem, calc(0.23rem + 0.08vw), 0.31rem);
+
+  /* Space 2xs: 8px → 9px */
+  --space-2xs: clamp(0.5rem, calc(0.48rem + 0.08vw), 0.56rem);
+
+  /* Space xs: 12px → 14px */
+  --space-xs: clamp(0.75rem, calc(0.72rem + 0.16vw), 0.88rem);
+
+  /* Space s: 16px → 18px */
+  --space-s: clamp(1rem, calc(0.97rem + 0.16vw), 1.13rem);
+
+  /* Space m: 24px → 27px */
+  --space-m: clamp(1.5rem, calc(1.45rem + 0.23vw), 1.69rem);
+
+  /* Space l: 32px → 36px */
+  --space-l: clamp(2rem, calc(1.94rem + 0.31vw), 2.25rem);
+
+  /* Space xl: 48px → 54px */
+  --space-xl: clamp(3rem, calc(2.91rem + 0.47vw), 3.38rem);
+
+  /* Space 2xl: 64px → 72px */
+  --space-2xl: clamp(4rem, calc(3.88rem + 0.63vw), 4.5rem);
+
+  /* Space 3xl: 96px → 108px */
+  --space-3xl: clamp(6rem, calc(5.81rem + 0.94vw), 6.75rem);
+
+  /*  */
+
+  --icon-down: url('data:image/svg+xml;utf8,<svg width="200px" height="200px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.1018 8C5.02785 8 4.45387 9.2649 5.16108 10.0731L10.6829 16.3838C11.3801 17.1806 12.6197 17.1806 13.3169 16.3838L18.8388 10.0731C19.5459 9.2649 18.972 8 17.898 8H6.1018Z" fill=\'%23ffffff\'></path> </g></svg>');
+}
+
+/*@media (prefers-color-scheme: light) {
+	html {
+		--paper: var(--white);
+	  --ink: var(--black);
+	  --color-darker: var(--color-lighter);
+	  --color-dark: var(--color-light); 
+	}
+ }
+ */
