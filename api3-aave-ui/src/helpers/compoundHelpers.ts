@@ -10,21 +10,17 @@ const compoundChainConfig = populateChainConfigs();
 export async function getPrices(comet: any) {
   const compoundMarket = populateCompoundMarket();
 
-  let [compPrice, wbtcPrice, wethPrice, usdcPrice] = await Promise.all([
-    comet.callStatic.getPrice(compoundMarket.priceFeeds.COMP),
-    comet.callStatic.getPrice(compoundMarket.priceFeeds.WBTC),
+  let [cbEthPrice, wethPrice, wstEthPrice] = await Promise.all([
+    comet.callStatic.getPrice(compoundMarket.priceFeeds.cbETH),
     comet.callStatic.getPrice(compoundMarket.priceFeeds.WETH),
-    comet.callStatic.getPrice(compoundMarket.priceFeeds.USDC),
+    comet.callStatic.getPrice(compoundMarket.priceFeeds.wstETH),
   ]);
-  wbtcPrice /= Math.pow(10, 8);
-
-  usdcPrice /= Math.pow(10, 8);
-
+  cbEthPrice /= Math.pow(10, 8);
   wethPrice /= Math.pow(10, 8);
-  compPrice /= Math.pow(10, 8);
+  wstEthPrice /= Math.pow(10, 8);
 
-  console.log({ compPrice, usdcPrice, wbtcPrice, wethPrice });
-  return [compPrice, wbtcPrice, wethPrice, usdcPrice];
+  console.log({ cbEthPrice, wethPrice, wstEthPrice });
+  return [cbEthPrice, wethPrice, wstEthPrice];
 }
 
 export async function getBorrowCapacity(
