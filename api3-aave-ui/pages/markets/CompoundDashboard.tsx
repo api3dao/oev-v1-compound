@@ -100,7 +100,7 @@ export default function CompoundDashboard() {
         </div>
         <div className="summary-cards">
           <div className="summary-card">
-            <h3 className="teaser-voice">Todal Reserves </h3>
+            <h3 className="teaser-voice">Total Reserves </h3>
             <p className="attention-voice">
               <FormattedNumber
                 value={compoundState?.assetInfo?.totalReserves}

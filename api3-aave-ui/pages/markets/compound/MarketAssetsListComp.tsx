@@ -166,7 +166,7 @@ export default function MarketAssetsListComp({
           </div>
           <div className="min-w-max">
             <h3 className="teaser-voice font-700">
-              Liquidation Panality /
+              Liquidation Penalty /
               <strong className="whisper-voice text-primary"> %</strong>
             </h3>
           </div>
