@@ -13,7 +13,7 @@
           "wrapped": "WETH",
           "decimals": 18
         },
-        "explorerLink": "https://basescan.org/"
+        "explorerLink": "https://sepolia.basescan.org/"
       }
     },
     "deployed-contracts": {
