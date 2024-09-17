@@ -1,0 +1,51 @@
+{
+  "currentMarket": "compound",
+  "compound": {
+    "config": {
+      "baseToken": "0x02Eb4380327F65b0119075f6d4c1eeB3902F0631",
+      "network": {
+        "chainId": 84532,
+        "name": "base-sepolia",
+        "rpc": "https://sepolia.base.org",
+        "nativeCurrency": {
+          "name": "Ether",
+          "symbol": "ETH",
+          "wrapped": "WETH",
+          "decimals": 18
+        },
+        "explorerLink": "https://sepolia.basescan.org/"
+      }
+    },
+    "deployed-contracts": {
+      "comet": "0x66bAd96cA64EDf606e8c2eBA55045078e3cd3675",
+      "comet:implementation": "0x6fa729A73B29fc9c55b41553E3BDe24d950c161d",
+      "comet:implementation:implementation": "0xF3C7873Ddf7EF3F1102fdb7Df30A14ce8ff63082",
+      "USDC": "0x02Eb4380327F65b0119075f6d4c1eeB3902F0631",
+      "USDC:priceFeed": "0x306822095C32e8303A429067E8ab1b017CA88031",
+      "cbETH": "0x774eD9EDB0C5202dF9A86183804b5D9E99dC6CA3",
+      "WETH": "0x4200000000000000000000000000000000000006",
+      "wstETH": "0x224e12002571C092F360bb54FC1AFFAf8a28aC4E",
+      "cbETH:priceFeed": "0xDe6ca25b4B6738eB94971d0ED4D1cB346608Ff68",
+      "WETH:priceFeed": "0x6c3594704165F4c0481eF65AC8c8c521F445F83d",
+      "wstETH:priceFeed": "0x81fBf49461d9857d77134bEab9cBbFDaf04014B2",
+      "cometAdmin": "0x94fc0B1C7CfA29Cd1Badb470163D37a2850f66a5",
+      "timelock": "0xE69baf404a492ea1b02fD307B621f2280E5B69fd",
+      "governor": "0xbd480C2a868c2053a55Ddb446Fc4aa8C3d948F56",
+      "governor:implementation": "0x5e4Fa94A3bDad4CC771635F6eDcfd04b2BCDa481",
+      "COMP": "0xD9F64a501553A6a1709cA0Bb16E7d8c47769212f",
+      "configurator": "0x2D4b91BD43e1b054a64511706914cbf3f45444AB",
+      "configurator:implementation": "0x074B7C11458A6067087e0d1F65321C015569bf9d",
+      "configuratorAdmin": "0x94fc0B1C7CfA29Cd1Badb470163D37a2850f66a5",
+      "cometFactory": "0x9Cdb34Cee747eD47004fcDb7523fcc92309298ef",
+      "rewards": "0xee5fDE7F38a2a5E1E54037fBe4fa23aDD6bea272",
+      "fauceteer": "0x3BD5937209e580Df9eA9B665B4B8Eb3D3704CC27",
+      "bulker": "0xb2945D0CDa4C119DE184380955aA4FbfAFb6B8cC",
+      "priceFeeds": {
+        "cbETH": "0xDe6ca25b4B6738eB94971d0ED4D1cB346608Ff68",
+        "WETH": "0x6c3594704165F4c0481eF65AC8c8c521F445F83d",
+        "wstETH": "0x81fBf49461d9857d77134bEab9cBbFDaf04014B2",
+        "USDC": "0x306822095C32e8303A429067E8ab1b017CA88031"
+      }
+    }
+  }
+}

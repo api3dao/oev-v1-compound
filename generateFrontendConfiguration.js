@@ -16,7 +16,7 @@ let frontendConfig = {
   compound: {
     config: {
       baseToken: configuration.baseTokenAddress,
-      rewardToken: configuration?.assets?.[configuration.rewardToken].address,
+      rewardToken: configuration?.assets?.[configuration.rewardToken]?.address,
       network: {
         chainId: config.network.chainId,
         name: config.network.name,

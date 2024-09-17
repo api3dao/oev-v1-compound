@@ -1,0 +1,88 @@
+html {
+  /* Black and white */
+  --hue: 90;
+  --black: hsla(0, 0%, 1%, 1);
+  --white: hsla(var(--hue), 0%, 94%, 1);
+
+  --gray: hsla(var(--hue), 0%, 50%, 1);
+
+  --gray-light: hsla(var(--hue), 0%, 71%, 1);
+  --gray-lighter: hsla(var(--hue), 0%, 90%, 1);
+
+  --gray-dark: hsla(var(--hue), 0%, 26%, 1);
+  --gray-darker: hsla(var(--hue), 0%, 15%, 1);
+
+  /* Colors */
+
+  /* #todo replacce the light and dark with color-mix eventually */
+
+  /* hsla(85, 74%, 47%, 1.00) */
+  --color: hsla(var(--hue), 75%, 65%, 1);
+  --color-light: hsla(var(--hue), 75%, 75%, 1);
+  --color-lighter: hsla(var(--hue), 75%, 85%, 1);
+  --color-lightest: hsla(var(--hue), 75%, 95%, 1);
+  --color-dark: hsla(var(--hue), 75%, 46%, 1);
+  --color-darker: hsla(var(--hue), 75%, 27%, 1);
+  --color-darkest: hsla(var(--hue), 75%, 15%, 1);
+
+  /* hsla(270, 76%, 65%, 1.00) */
+  --highlight: hsla(calc(var(--hue) + 180), 90%, 60%, 1);
+  --highlight-light: hsla(calc(var(--hue) + 180), 90%, 70%, 1);
+  --highlight-lighter: hsla(calc(var(--hue) + 180), 90%, 80%, 1);
+  --highlight-lightest: hsla(calc(var(--hue) + 180), 90%, 90%, 1);
+  --highlight-dark: hsla(calc(var(--hue) + 180), 90%, 50%, 1);
+  --highlight-darker: hsla(calc(var(--hue) + 180), 90%, 40%, 1);
+  --highlight-darkest: hsla(calc(var(--hue) + 180), 90%, 30%, 1);
+
+  --accent: hsla(calc(var(--hue) - 120), 77%, 44%, 1);
+  --accent-light: hsla(calc(var(--hue) - 120), 77%, 54%, 1);
+  --accent-lighter: hsla(calc(var(--hue) - 120), 77%, 64%, 1);
+  --accent-lightest: hsla(calc(var(--hue) - 120), 77%, 74%, 1);
+  --accent-dark: hsla(calc(var(--hue) - 120), 77%, 34%, 1);
+  --accent-darker: hsla(calc(var(--hue) - 120), 77%, 24%, 1);
+  --accent-darkest: hsla(calc(var(--hue) - 120), 77%, 14%, 1);
+
+  --success: hsla(122, 85%, 65%, 1);
+  --warning: hsla(44, 85%, 65%, 1);
+  --error: hsla(0, 85%, 65%, 1);
+
+  /* Gradients */
+  --gradient-direction: 0deg;
+
+  --gradient-dark: linear-gradient(
+    var(--gradient-direction),
+    var(--black) 50%,
+    var(--gray)
+  );
+
+  --gradient-color: linear-gradient(
+    var(--gradient-direction),
+    var(--color-dark),
+    var(--ink) 80%
+  );
+
+  --gradient-dark-color: linear-gradient(
+    var(--gradient-direction),
+    var(--color-darkest) /* var(--gray) */,
+    var(--black) 50%
+  );
+
+  --gradient-light: linear-gradient(
+    var(--gradient-direction),
+    var(--highlight-lightest),
+    var(--white),
+    var(--color-lightest),
+    var(--gray-lighter)
+  );
+
+  /*  */
+  --paper: var(--gradient-dark-color);
+  --ink: var(--gray-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    /* --ink: var(--white);
+    --paper: var(--gradient-dark); */
+  }
+}

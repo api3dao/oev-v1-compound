@@ -1,0 +1,155 @@
+/* Should we pull in @fonts here? */
+/* don't think you can... might have to be higher up (the top of) the food chain! */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.futura {
+  font-family: var(--font2) !important;
+}
+
+.booming-voice {
+  --font-size: var(--step-4);
+  font-family: var(--font);
+
+  font-size: var(--font-size);
+  font-weight: var(--weight-heavy);
+  line-height: calc(var(--font-size) * 1.2);
+  letter-spacing: -0.03em;
+}
+
+.loud-voice {
+  --font-size: var(--step-3);
+  font-family: var(--font);
+
+  font-size: var(--font-size);
+  font-weight: var(--weight-heavy);
+  letter-spacing: -0.02em;
+  line-height: calc(var(--font-size) * 1.2);
+}
+
+@media (min-width: 600px) {
+  .loud-voice {
+    /* font-weight: 100; */
+    font-weight: var(--weight-medium);
+  }
+}
+
+.attention-voice {
+  --font-size: var(--step-2);
+  font-family: var(--font);
+  font-size: var(--font-size);
+  font-weight: var(--weight-medium);
+  line-height: calc(var(--font-size) * 1.2);
+}
+
+.notice-voice {
+  font-family: var(--font);
+  font-size: var(--step-1);
+  line-height: 1.6;
+  font-weight: var(--weight-light);
+  color: var(--gray);
+}
+
+.firm-voice {
+  font-family: var(--font);
+  font-size: var(--step-1);
+  line-height: 1.2;
+  font-weight: var(--weight-heavy);
+}
+
+.teaser-voice {
+  font-family: var(--font);
+  font-weight: var(--weight-heavy);
+  font-size: var(--step--1);
+  line-height: 1.6;
+  font-weight: var(--weight-light);
+  text-transform: uppercase;
+
+  &.blue {
+    color: var(--accent);
+  }
+  &.violet {
+    color: var(--highlight);
+  }
+}
+
+.solid-voice {
+  font-family: var(--font);
+  font-size: var(--step-0);
+  font-weight: var(--weight-heavy);
+  line-height: 1.6;
+  letter-spacing: 0em;
+
+  text-wrap: balance;
+}
+
+.calm-voice,
+p,
+a,
+li,
+button,
+label {
+  font-family: var(--font) !important;
+  font-size: var(--step-0);
+  line-height: 1.6;
+
+  font-weight: var(--weight-light);
+  color: var(--ink);
+}
+
+:where(p),
+.calm-voice,
+li,
+label {
+  font-size: var(--step-0);
+}
+
+.react-select .calm-voice {
+  color: var(--black);
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: var(--weight-heavy);
+}
+
+.whisper-voice {
+  font-family: var(--font);
+
+  font-size: var(--step--1);
+  /* opacity: 0.8; */
+  font-weight: var(--weight-light);
+  color: var(--gray-lighter);
+  letter-spacing: 0.08em;
+}
+
+.micro-voice {
+  font-family: var(--font);
+
+  font-size: var(--step--2);
+  font-weight: var(--weight-light);
+  letter-spacing: 0.08em;
+}
+
+/* these would be scoped to section or to an article element */
+/* this is just a loose setting for now */
+/* or smaller group of article-like styles such as a <text-content> custom element */
+p + p {
+  /* margin-top: 1em; Using em since its tied to an element with a set Font Size */
+}
+
+h2 + p {
+  /* margin-top: 1.25em; */
+}
+
+code {
+  font-family: monospace;
+  font-size: var(--step--1);
+  color: green;
+}
+
+.error {
+  color: var(--error) !important;
+}

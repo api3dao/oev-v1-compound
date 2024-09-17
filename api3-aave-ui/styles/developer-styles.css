@@ -1,0 +1,16 @@
+body * {
+  /* outline: 1px solid hsla(207, 100%, 80%, 1); */
+  /* padding: 4px; */
+}
+
+section:nth-of-type(odd) {
+  /* background-color: rgba(0, 0, 0, 0.03); */
+}
+
+picture img {
+  /* opacity: 0; */
+}
+
+picture {
+  /* background-color: var(--shadow); */
+}

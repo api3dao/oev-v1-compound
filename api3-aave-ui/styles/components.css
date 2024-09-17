@@ -1,0 +1,211 @@
+/* buttons and icons and smaller reusable bits here */
+
+@import "forms.css";
+
+/* buttom a */
+
+/* button */
+
+button,
+a {
+  background: none;
+  cursor: pointer;
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: var(--weight-medium);
+}
+
+/* CSS */
+.button {
+  padding: 1em 2em;
+  position: relative;
+
+  user-select: none;
+  text-align: center;
+  white-space: nowrap;
+
+  background: var(--accent);
+
+  outline: unset;
+  border-radius: calc(var(--corners) / 2);
+}
+
+.button:is(:hover, :focus-visible) {
+  background: var(--accent-light);
+}
+
+.button:active {
+  background: var(--accent-dark);
+}
+
+/*  */
+
+/* outline button / seconadry button */
+
+.button.outline {
+  background: none;
+  border: 1px solid gray;
+  outline: unset;
+}
+
+.button.outline:is(:hover, :focus-visible, .hover) {
+  color: var(--accent-lighter);
+  border-color: var(--accent-lighter);
+  filter: saturate(2);
+}
+.button.outline:active {
+  color: var(--accent-light);
+  border-color: var(--accent-light);
+}
+
+.button.outline.text-secondary:is(:hover, :focus-visible) {
+  color: var(--color);
+}
+
+.button.outline.border-0 {
+  border: unset !important;
+  outline: unset !important;
+
+  background: var(--icon-down);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  padding-right: 2rem;
+}
+
+/* button icon */
+
+:is(button, a).icon {
+  padding: 0.65em;
+  /* border: 1px solid var(--accent); */
+  border-radius: 0.375rem;
+  aspect-ratio: 1 / 1;
+  max-width: var(--space-l);
+  line-height: 0;
+  /* max-width: var(--space-xl); */
+}
+
+.icon > * {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* text */
+
+/* Text buttons and acnhors  */
+:is(button, a).text {
+  padding: 0.5em 1em;
+  background: none;
+  border: none;
+  color: var(--white);
+  --link-hover: var(--color-lighter);
+  --link-active: var(--color);
+}
+p :is(button, a).text {
+  padding: 0;
+}
+.text:is(:hover, :focus-visible) {
+  color: var(--link-hover) !important;
+}
+.text:active {
+  color: var(--link-active) !important;
+}
+
+.text.green {
+  color: var(--color);
+  --link-hover: var(--color-lighter);
+  --link-active: var(--color-dark);
+}
+.text.violet {
+  color: var(--highlight);
+  --link-hover: var(--highlight-light);
+  --link-active: var(--highlight-dark);
+}
+.text.blue {
+  color: var(--accent-lighter);
+  --link-hover: var(--accent-light);
+  --link-active: var(--accent);
+}
+
+/* diabled buttons */
+
+button:disabled,
+a.disabled,
+button.disabled {
+  filter: saturate(0.5) brightness(0.4);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/*  */
+
+div.actions,
+.wallet-wrapper {
+  display: flex;
+  gap: var(--space-s);
+}
+
+.wallet-wrapper {
+  justify-content: end;
+}
+
+.wallet-wrapper button.icon {
+  display: flex;
+  align-items: center;
+}
+
+.wallet-wrapper picture.wallet-token-icon {
+  /* max-width: 2rem; */
+  aspect-ratio: 1/1;
+}
+
+/*  */
+
+/* scrollbar */
+
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: var(--line-width); /* Firefox */
+}
+/* This part is for the scrollbar track / */
+*::-webkit-scrollbar {
+  width: var(--line-width);
+  height: calc(var(--line-width) * 4);
+}
+
+/* / This part is for the track (the part that the thumb slides across) / */
+::-webkit-scrollbar-track {
+  box-shadow: var(--shadow);
+  border-radius: var(--corners);
+}
+
+/* / This part is for the thumb (the part you drag) / */
+:not(ul)::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: var(--corners);
+
+  @media (min-width: 768px) {
+    background: var(--gradient-color);
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-color);
+  border-radius: var(--corners);
+}
+
+/* / This part is for the thumb when it's being hovered over  */
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.2);
+  width: calc(var(--line-width) * 4);
+  height: calc(var(--line-width) * 4);
+}
+
+/*  */
+.outline .balance {
+}
+
+mark.highlight {
+  background: none;
+  color: var(--highlight);
+}
