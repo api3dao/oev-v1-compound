@@ -35,14 +35,18 @@ let configuration = {
 };
 
 for (let asset of references.assets) {
-  configuration.assets[asset.assetSymbol] = {
-    "priceFeed": asset.EACAggregatorProxy,
+  const assetRecord = {
+    "priceFeed": asset.priceFeed,
     "decimals": asset.decimals,
     "borrowCF": 0.75,
-    "liquidateCF": 0.81,
+    "liquidateCF": 0.7501,
     "liquidationFactor": 0.93,
     "supplyCap": asset.supplyCap
   };
+  if (asset.address) {
+    assetRecord.address = asset.address;
+  }
+  configuration.assets[asset.assetSymbol] = assetRecord;
 }
 
 fs.writeFileSync(`../deployments/${config.network.name}/usdc/configuration.json`, JSON.stringify(configuration, null, 2));

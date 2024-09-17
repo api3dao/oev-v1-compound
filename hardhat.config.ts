@@ -245,7 +245,6 @@ const config: HardhatUserConfig = {
       rinkeby: ETHERSCAN_KEY,
       goerli: ETHERSCAN_KEY,
       sepolia: ETHERSCAN_KEY,
-      'base-sepolia': ETHERSCAN_KEY,
       // Avalanche
       avalanche: SNOWTRACE_KEY,
       avalancheFujiTestnet: SNOWTRACE_KEY,
@@ -260,6 +259,7 @@ const config: HardhatUserConfig = {
       // Base
       base: BASESCAN_KEY,
       'base-goerli': BASESCAN_KEY,
+      'base-sepolia': BASESCAN_KEY,
       // Linea
       'linea-goerli': LINEASCAN_KEY,
       optimism: OPTIMISMSCAN_KEY,
@@ -304,6 +304,15 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: 'https://api-goerli.basescan.org/api',
           browserURL: 'https://goerli.basescan.org/'
+        }
+      },
+      {
+        // Hardhat's Etherscan plugin calls the network `baseGoerli`, so we need to add an entry for our own network name
+        network: 'base-sepolia',
+        chainId: 84532,
+        urls: {
+          apiURL: 'https://api-sepolia.basescan.org/api',
+          browserURL: 'https://sepolia.basescan.org/'
         }
       },
       {

@@ -1,6 +1,6 @@
 require('@nomiclabs/hardhat-waffle');
 require('hardhat-deploy');
-require("@nomicfoundation/hardhat-verify");
+require('@nomicfoundation/hardhat-verify');
 
 require('dotenv').config({path: '../.env'});
 
@@ -8,7 +8,7 @@ const fs = require('fs');
 let config = require('./config.json');
 
 module.exports = {
-  networks: { 
+  networks: {
     custom: {
       url: config.network.rpc,
       chainId: config.network.chainId,
@@ -16,9 +16,9 @@ module.exports = {
         mnemonic: process.env.MNEMONIC
       }
     }
-   },
+  },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_KEY
+    apiKey: process.env.BASESCAN_KEY
   },
   solidity: {
     version: '0.8.17',

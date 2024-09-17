@@ -1,6 +1,25 @@
 const hre = require("hardhat");
 const fs = require("fs");
 
+const deployEACAggregatorProxy = async (proxyAddress, assetName) => {
+    const constructorArguments = [proxyAddress];
+    const EACAggregatorProxy = await hre.deployments.deploy("EACAggregatorProxy", {
+        args: constructorArguments,
+        from: (await hre.getUnnamedAccounts())[0],
+        log: true,
+    });
+    console.log(`Deployed EACAggregatorProxy for ${assetName} at ${EACAggregatorProxy.address}`);
+
+    // verify
+    await hre.run("verify:verify", {
+        address: EACAggregatorProxy.address,
+        constructorArguments: constructorArguments,
+    });
+    console.log(`Verified EACAggregatorProxy for ${assetName} at ${EACAggregatorProxy.address}`);
+
+    return EACAggregatorProxy.address;
+}
+
 module.exports = async () => {
     let data = fs.readFileSync('./config.json', 'utf8');
     let config;
@@ -33,27 +52,51 @@ module.exports = async () => {
         // console.log(`Verified ${asset.assetName} at ${ERC20.address}`);
 
         // Deploy the EACAggregatorProxy dAPI adaptor for the asset.
-        const EACAggregatorProxy = await hre.deployments.deploy("EACAggregatorProxy", {
-            args: [asset.proxyAddress],
-            from: (await hre.getUnnamedAccounts())[0],
-            log: true,
-        });
-        console.log(`Deployed EACAggregatorProxy for ${asset.assetName} at ${EACAggregatorProxy.address}`);
+        let priceFeed;
+        if (asset.proxyAddress) {
+            priceFeed = await deployEACAggregatorProxy(asset.proxyAddress, asset.assetName);
+        } else if (asset.proxyAddresses) {
+            if (asset.proxyAddresses.length != 2) {
+                throw `Asset ${asset.assetSymbol} has ${asset.proxyAddresses.length} proxyAddresses, expected 2 (more than 2 is not implemented)`;
+            }
 
-        // verify
-        await hre.run("verify:verify", {
-            address: EACAggregatorProxy.address,
-            constructorArguments: [asset.proxyAddress],
-        });
-        console.log(`Verified EACAggregatorProxy for ${asset.assetName} at ${EACAggregatorProxy.address}`);
+            const priceFeed1 = await deployEACAggregatorProxy(asset.proxyAddresses[0], asset.proxyAddresses[0]);
+            const priceFeed2 = await deployEACAggregatorProxy(asset.proxyAddresses[1], asset.proxyAddresses[1]);
 
-        deploymentsConfig.assets.push({
+            const constructorArguments = [priceFeed1, priceFeed2, asset.decimals, asset.description];
+            const multiplicativePriceFeed = await hre.deployments.deploy(
+                'MultiplicativePriceFeed', {
+                args: constructorArguments,
+                from: (await hre.getUnnamedAccounts())[0],
+                log: true,
+            }
+            );
+            console.log(`Deployed MultiplicativePriceFeed for ${asset.proxyAddresses[0]} and ${asset.proxyAddresses[1]} at ${multiplicativePriceFeed.address}`);
+
+            // verify
+            await hre.run("verify:verify", {
+                address: multiplicativePriceFeed.address,
+                constructorArguments: constructorArguments,
+            });
+            console.log(`Verified MultiplicativePriceFeed for ${asset.proxyAddresses[0]} and ${asset.proxyAddresses[1]} at ${multiplicativePriceFeed.address}`);
+
+            priceFeed = multiplicativePriceFeed.address;
+        } else {
+            throw `Asset ${asset.assetSymbol} has neither proxyAddress nor proxyAddresses`;
+        }
+
+        const assetRecord = {
             assetSymbol: asset.assetSymbol,
             pairName: asset.pairName,
             decimals: asset.decimals,
-            EACAggregatorProxy: EACAggregatorProxy.address,
+            priceFeed,
             supplyCap: asset.supplyCap
-        });
+        }
+        if (asset.address) {
+            assetRecord.address = asset.address;
+        }
+
+        deploymentsConfig.assets.push(assetRecord);
     }
 
     // Deploy USDC

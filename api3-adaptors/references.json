@@ -1,27 +1,30 @@
 {
   "assets": [
     {
-      "assetSymbol": "COMP",
-      "pairName": "COMP/USD",
+      "address": "0x774eD9EDB0C5202dF9A86183804b5D9E99dC6CA3",
+      "assetSymbol": "cbETH",
+      "pairName": "cbETH/USD",
       "decimals": 18,
-      "EACAggregatorProxy": "0x8F9f18366bFbDC24493dCeD668c830Bc2AbBF60d",
+      "priceFeed": "0xDe6ca25b4B6738eB94971d0ED4D1cB346608Ff68",
       "supplyCap": "500000e18"
     },
     {
-      "assetSymbol": "WBTC",
-      "pairName": "WBTC/USD",
-      "decimals": 8,
-      "EACAggregatorProxy": "0xfd4DDbfDc87c6FbCc246202fCc14613A69eC9322",
-      "supplyCap": "35000e8"
-    },
-    {
+      "address": "0x4200000000000000000000000000000000000006",
       "assetSymbol": "WETH",
       "pairName": "WETH/USD",
       "decimals": 18,
-      "EACAggregatorProxy": "0x7Ef0ed9C5747D73e239AFD757358Cbd4bCaa03f0",
+      "priceFeed": "0x6c3594704165F4c0481eF65AC8c8c521F445F83d",
+      "supplyCap": "1000000e18"
+    },
+    {
+      "address": "0x224e12002571C092F360bb54FC1AFFAf8a28aC4E",
+      "assetSymbol": "wstETH",
+      "pairName": "wstETH/USD",
+      "decimals": 18,
+      "priceFeed": "0x81fBf49461d9857d77134bEab9cBbFDaf04014B2",
       "supplyCap": "1000000e18"
     }
   ],
-  "USDC": "0xccDacB3406ac097A4F4A23E8c6747BaE55d0c3d1",
-  "EACAggregatorProxyUSDC": "0x87a6b510580af4aDf9c42d64FBC02E6185aebcd2"
+  "USDC": "0x02Eb4380327F65b0119075f6d4c1eeB3902F0631",
+  "EACAggregatorProxyUSDC": "0x306822095C32e8303A429067E8ab1b017CA88031"
 }
