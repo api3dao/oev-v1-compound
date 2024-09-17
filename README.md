@@ -67,7 +67,7 @@ This would deploy Compound V3 USDC Market on your desired chain with all the col
 
 ## Spinning up the frontend
 
-After the deployment, you can spin up the frontend to interact with the protocol. Install all the packages for the frontend:
+After the deployment, you can spin up the frontend to interact with the protocol. Generate frontend configuration:
 
 ```bash
 yarn frontend:codegen
