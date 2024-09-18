@@ -45,7 +45,7 @@
     "network": {
         "chainId": 8453,
         "name": "base",
-        "rpc": "http://127.0.0.1:8545",
+        "rpc": "https://mainnet.base.org",
         "nativeCurrency": {
             "name": "Ether",
             "symbol": "ETH",
