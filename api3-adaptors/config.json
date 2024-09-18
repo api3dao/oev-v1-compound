@@ -1,13 +1,14 @@
 {
+    "api3ReaderProxyV1FactoryAddress": "0x79442BaBD983e925FFEeaA95904AeD79b482c091",
     "assets": [
         {
-            "address": "0x774eD9EDB0C5202dF9A86183804b5D9E99dC6CA3",
+            "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
             "assetName": "Coinbase Wrapped Staked ETH",
             "assetSymbol": "cbETH",
             "pairName": "cbETH/USD",
-            "proxyAddresses": [
-                "0x3233E4507a44aDbd145b81DDF5B08d67D8D92A94",
-                "0xB7ce7B052836c69EaB40a1D5C0b2baeE8eFB86C7"
+            "dapiNames": [
+                "cbETH/ETH Exchange Rate",
+                "ETH/USD"
             ],
             "description": "cbETH/USD Price Feed",
             "decimals": 18,
@@ -19,20 +20,20 @@
             "assetName": "Wrapped Ether",
             "assetSymbol": "WETH",
             "pairName": "WETH/USD",
-            "proxyAddress": "0xB7ce7B052836c69EaB40a1D5C0b2baeE8eFB86C7",
+            "dapiName": "ETH/USD",
             "description": "WETH/USD Price Feed",
             "decimals": 18,
             "supplyCap": "1000000e18",
             "deployERC20": false
         },
         {
-            "address": "0x224e12002571C092F360bb54FC1AFFAf8a28aC4E",
+            "address": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
             "assetName": "Wrapped liquid staked Ether 2.0",
             "assetSymbol": "wstETH",
             "pairName": "wstETH/USD",
-            "proxyAddresses": [
-                "0xCcFC77425a3bBDaa2c1dda90b91764f829bd1702",
-                "0x230231fEF3125B87c9Edb180fbF6a26bDC753478"
+            "dapiNames": [
+                "wstETH/stETH Exchange Rate",
+                "stETH/USD"
             ],
             "description": "wstETH/USD Price Feed",
             "decimals": 18,
@@ -40,18 +41,17 @@
             "deployERC20": false
         }
     ],
-    "EthUsdProxyAddress": "0xB7ce7B052836c69EaB40a1D5C0b2baeE8eFB86C7",
-    "UsdcUsdProxyAddress": "0x5fb6E1fBCB474E1aAfFb7C2104d731633D8c3D63",
+    "USDC": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "network": {
-        "chainId": 84532,
-        "name": "base-sepolia",
-        "rpc": "https://sepolia.base.org",
+        "chainId": 8453,
+        "name": "base",
+        "rpc": "http://127.0.0.1:8545",
         "nativeCurrency": {
             "name": "Ether",
             "symbol": "ETH",
             "wrapped": "WETH",
             "decimals": 18
         },
-        "explorerLink": "https://sepolia.basescan.org/"
+        "explorerLink": "https://basescan.org/"
     }
 }
