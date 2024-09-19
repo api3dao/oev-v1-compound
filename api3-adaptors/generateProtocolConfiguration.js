@@ -9,7 +9,7 @@ let configuration = {
   "symbol": "cUSDCv3",
   "baseToken": "USDC",
   "baseTokenAddress": references.USDC,
-  "baseTokenPriceFeed": references.usdcApi3ReaderProxyV1,
+  "baseTokenPriceFeed": references.USDCPriceFeed,
   "pauseGuardian": "0x008a4C5448ac1Df676d6F39A0C6F13b21b189389",
   "borrowMin": "1e0",
   "storeFrontPriceFactor": 0.5,

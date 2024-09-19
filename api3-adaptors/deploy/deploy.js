@@ -1,6 +1,9 @@
 const hre = require('hardhat');
 const fs = require('fs');
 
+// Compound requires the price feeds to have 8 decimals
+const COMPOUND_PRICE_FEED_DECIMALS = 8;
+
 const deployApi3ReaderProxyV1 = async (api3ReaderProxyV1Factory, dapiName) => {
   const dapiNameBytes = hre.ethers.utils.formatBytes32String(dapiName);
   const dappId = 1;
@@ -18,6 +21,56 @@ const deployApi3ReaderProxyV1 = async (api3ReaderProxyV1Factory, dapiName) => {
   }
 
   return expectedApi3ReaderProxyV1Address;
+};
+
+const deployScalingPriceFeed = async (underlyingPriceFeed, decimals, dapiName) => {
+  const constructorArguments = [underlyingPriceFeed, decimals];
+  const scalingPriceFeed = await hre.deployments.deploy(
+    'ScalingPriceFeed', {
+      args: constructorArguments,
+      from: (await hre.getUnnamedAccounts())[0],
+      log: true,
+    }
+  );
+  console.log(`Deployed ScalingPriceFeed for ${dapiName} at ${scalingPriceFeed.address}`);
+
+  // verify
+  try{
+    await hre.run('verify:verify', {
+      address: scalingPriceFeed.address,
+      constructorArguments: constructorArguments,
+    });
+    console.log(`Verified ScalingPriceFeed for ${dapiName} at ${scalingPriceFeed.address}`);
+  } catch (err) {
+    console.error('Error verifying ScalingPriceFeed:', err);
+  }
+
+  return scalingPriceFeed.address;
+};
+
+const deployMultiplicativePriceFeed = async (priceFeed1, priceFeed2, decimals, description, dapiName1, dapiName2) => {
+  const constructorArguments = [priceFeed1, priceFeed2, decimals, description];
+  const multiplicativePriceFeed = await hre.deployments.deploy(
+    'MultiplicativePriceFeed', {
+      args: constructorArguments,
+      from: (await hre.getUnnamedAccounts())[0],
+      log: true,
+    }
+  );
+  console.log(`Deployed MultiplicativePriceFeed for ${dapiName1} and ${dapiName2} at ${multiplicativePriceFeed.address}`);
+
+  // verify
+  try{
+    await hre.run('verify:verify', {
+      address: multiplicativePriceFeed.address,
+      constructorArguments: constructorArguments,
+    });
+    console.log(`Verified MultiplicativePriceFeed for ${dapiName1} and ${dapiName2} at ${multiplicativePriceFeed.address}`);
+  } catch (err) {
+    console.error('Error verifying MultiplicativePriceFeed:', err);
+  }
+
+  return multiplicativePriceFeed.address;
 };
 
 module.exports = async () => {
@@ -53,7 +106,8 @@ module.exports = async () => {
     // Deploy the Api3ReaderProxyV1 for the asset.
     let priceFeed;
     if (asset.dapiName) {
-      priceFeed = await deployApi3ReaderProxyV1(api3ReaderProxyV1Factory, asset.dapiName);
+      const proxyPriceFeed = await deployApi3ReaderProxyV1(api3ReaderProxyV1Factory, asset.dapiName);
+      priceFeed = await deployScalingPriceFeed(proxyPriceFeed, COMPOUND_PRICE_FEED_DECIMALS, asset.dapiName);
     } else if (asset.dapiNames) {
       if (asset.dapiNames.length != 2) {
         throw `Asset ${asset.assetSymbol} has ${asset.dapiNames.length} dapiNames, expected 2 (more than 2 is not implemented)`;
@@ -62,28 +116,7 @@ module.exports = async () => {
       const priceFeed1 = await deployApi3ReaderProxyV1(api3ReaderProxyV1Factory, asset.dapiNames[0]);
       const priceFeed2 = await deployApi3ReaderProxyV1(api3ReaderProxyV1Factory, asset.dapiNames[1]);
 
-      const constructorArguments = [priceFeed1, priceFeed2, asset.decimals, asset.description];
-      const multiplicativePriceFeed = await hre.deployments.deploy(
-        'MultiplicativePriceFeed', {
-          args: constructorArguments,
-          from: (await hre.getUnnamedAccounts())[0],
-          log: true,
-        }
-      );
-      console.log(`Deployed MultiplicativePriceFeed for ${asset.dapiNames[0]} and ${asset.dapiNames[1]} at ${multiplicativePriceFeed.address}`);
-
-      // verify
-      try{
-        await hre.run('verify:verify', {
-          address: multiplicativePriceFeed.address,
-          constructorArguments: constructorArguments,
-        });
-        console.log(`Verified MultiplicativePriceFeed for ${asset.dapiNames[0]} and ${asset.dapiNames[1]} at ${multiplicativePriceFeed.address}`);
-      } catch (err) {
-        console.error('Error verifying MultiplicativePriceFeed:', err);
-      }
-
-      priceFeed = multiplicativePriceFeed.address;
+      priceFeed = await deployMultiplicativePriceFeed(priceFeed1, priceFeed2, COMPOUND_PRICE_FEED_DECIMALS, asset.description, asset.dapiNames[0], asset.dapiNames[1]);
     } else {
       throw `Asset ${asset.assetSymbol} has neither dapiName nor dapiNames`;
     }
@@ -104,9 +137,10 @@ module.exports = async () => {
 
   deploymentsConfig['USDC'] = config.USDC;
 
-  // Deploy Api3ReaderProxyV1 for USDC/USD
+  // Deploy price feed for USDC/USD
   const usdcApi3ReaderProxyV1 = await deployApi3ReaderProxyV1(api3ReaderProxyV1Factory, 'USDC/USD');
-  deploymentsConfig['usdcApi3ReaderProxyV1'] = usdcApi3ReaderProxyV1;
+  const usdcPriceFeed = await deployScalingPriceFeed(usdcApi3ReaderProxyV1, COMPOUND_PRICE_FEED_DECIMALS, 'USDC/USD');
+  deploymentsConfig['USDCPriceFeed'] = usdcPriceFeed;
 
   fs.writeFileSync('references.json', JSON.stringify(deploymentsConfig, null, 2));
   console.log('Deployments saved to references.json');
