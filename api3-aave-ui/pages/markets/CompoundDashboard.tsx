@@ -6,6 +6,7 @@ import SymbolIcon from "src/components/SymbolIcon";
 import { useAppDataContext } from "src/hooks/app-data-provider/useAppDataProvider";
 import { useModalContext } from "src/hooks/useModal";
 import { useProtocolDataContext } from "src/hooks/useProtocolDataContext";
+import { formatUnits } from "viem";
 import { useAccount, useConnect } from "wagmi";
 
 export default function CompoundDashboard() {
@@ -103,7 +104,7 @@ export default function CompoundDashboard() {
             <h3 className="teaser-voice">Total Reserves </h3>
             <p className="attention-voice">
               <FormattedNumber
-                value={compoundState?.assetInfo?.totalReserves}
+                value={formatUnits(compoundState?.assetInfo?.totalReserves ?? 0, compoundState?.assetInfo?.baseInfo?.decimals ?? 6)}
                 // data-cy={`apy`}
                 symbol="USD"
               />{" "}

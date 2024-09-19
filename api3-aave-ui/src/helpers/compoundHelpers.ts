@@ -272,7 +272,7 @@ export async function getBorrowAPR(comet: any) {
 }
 
 export async function getTotalReserves(provider: any) {
-  const _cometAbi = ["function getReserves() returns (uint8)"];
+  const _cometAbi = ["function getReserves() returns (int256)"];
 
   const comet = new Contract(compoundMarket.comet, _cometAbi, provider);
 
