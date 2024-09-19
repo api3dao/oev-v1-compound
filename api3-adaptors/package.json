@@ -22,14 +22,14 @@
       "@typechain/hardhat": "^9.0.0",
       "chai": "^4.2.0",
       "dotenv": "^16.4.5",
-      "ethers": "^6.4.0",
+      "ethers": "^5.7.2",
       "hardhat-gas-reporter": "^1.0.8",
       "solidity-coverage": "^0.8.0",
       "typechain": "^8.3.0"
     },
     "scripts": {
       "coverage": "solidity-coverage",
-      "deploy:adaptors": "hardhat deploy --config hardhat.config.js --network custom --tags deployDapiAdapter && node copy-scripts.js && node generateProtocolConfiguration.js",
+      "deploy:adaptors": "hardhat deploy --config hardhat.config.js --network base --tags deployDapiAdapter && node copy-scripts.js && node generateProtocolConfiguration.js",
       "verify": "hardhat verify"
     }
   }

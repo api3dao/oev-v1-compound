@@ -1,42 +1,44 @@
 import { Deployed, DeploymentManager } from '../../../plugins/deployment_manager';
-import { DeploySpec, deployComet } from '../../../src/deploy';
+import { DeploySpec, cloneGov, deployComet, exp, sameAddress, wait } from '../../../src/deploy';
 
-const HOUR = 60 * 60;
-const DAY = 24 * HOUR;
-
-const MAINNET_TIMELOCK = '0x6d903f6003cca6255d85cca4d3b5e5146dc33925';
+const WETH = '0x4200000000000000000000000000000000000006';
 
 export default async function deploy(deploymentManager: DeploymentManager, deploySpec: DeploySpec): Promise<Deployed> {
   const deployed = await deployContracts(deploymentManager, deploySpec);
   return deployed;
 }
 
-async function deployContracts(
-  deploymentManager: DeploymentManager,
-  deploySpec: DeploySpec
-): Promise<Deployed> {
-  // Pull in existing assets
-  const cometAdmin = await deploymentManager.fromDep('cometAdmin', 'base', 'usdbc');
-  const cometFactory = await deploymentManager.fromDep('cometFactory', 'base', 'usdbc');
-  const $configuratorImpl = await deploymentManager.fromDep('configurator:implementation', 'base', 'usdbc');
-  const configurator = await deploymentManager.fromDep('configurator', 'base', 'usdbc');
-  const rewards = await deploymentManager.fromDep('rewards', 'base', 'usdbc');
-  const bulker = await deploymentManager.fromDep('bulker', 'base', 'usdbc');
-  const l2CrossDomainMessenger = await deploymentManager.fromDep('l2CrossDomainMessenger', 'base', 'usdbc');
-  const l2StandardBridge = await deploymentManager.fromDep('l2StandardBridge', 'base', 'usdbc');
-  const localTimelock = await deploymentManager.fromDep('timelock', 'base', 'usdbc');
-  const bridgeReceiver = await deploymentManager.fromDep('bridgeReceiver', 'base', 'usdbc');
-  const cbETHMultiplicativePriceFeed = await deploymentManager.fromDep('cbETH:priceFeed','base', 'usdbc');
+async function deployContracts(deploymentManager: DeploymentManager, deploySpec: DeploySpec): Promise<Deployed> {
+  const trace = deploymentManager.tracer();
+  const signer = await deploymentManager.getSigner();
 
+  // Deploy governance contracts
+  const { COMP, fauceteer, timelock } = await cloneGov(deploymentManager);
 
-  // Deploy Comet
+  // // ADD CUSTOM TOKENS
+  // const ARB = await deploymentManager.existing('ARB', '0x117e85D7FA75fFd5Af908E952bAE62b74613eD82', 'sepolia', 'contracts/ERC20.sol:ERC20');
+
+  // Deploy all Comet-related contracts
   const deployed = await deployComet(deploymentManager, deploySpec);
+  const { rewards } = deployed;
 
-  return {
-    ...deployed,
-    bridgeReceiver,
-    l2CrossDomainMessenger, // TODO: don't have to part of roots. can be pulled via relations
-    l2StandardBridge,
-    bulker,
-  };
+  // Deploy Bulker
+  const bulker = await deploymentManager.deploy(
+    'bulker',
+    'bulkers/BaseBulker.sol',
+    [timelock.address, WETH]
+  );
+
+  await deploymentManager.idempotent(
+    async () => (await COMP.balanceOf(rewards.address)).eq(0),
+    async () => {
+      trace(`Sending some COMP to CometRewards`);
+      const amount = exp(1_000_000, 18);
+      trace(await wait(COMP.connect(signer).transfer(rewards.address, amount)));
+      trace(`COMP.balanceOf(${rewards.address}): ${await COMP.balanceOf(rewards.address)}`);
+      trace(`COMP.balanceOf(${signer.address}): ${await COMP.balanceOf(signer.address)}`);
+    }
+  );
+
+  return { ...deployed, fauceteer, bulker };
 }

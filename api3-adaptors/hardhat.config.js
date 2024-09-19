@@ -9,7 +9,7 @@ let config = require('./config.json');
 
 module.exports = {
   networks: {
-    custom: {
+    base: {
       url: config.network.rpc,
       chainId: config.network.chainId,
       accounts: {

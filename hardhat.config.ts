@@ -91,6 +91,7 @@ export function requireEnv(varName, msg?: string): string {
   'INFURA_KEY',
   'POLYGONSCAN_KEY',
   'ARBISCAN_KEY',
+  'BASESCAN_KEY',
   'LINEASCAN_KEY',
   'OPTIMISMSCAN_KEY'
 ].map((v) => requireEnv(v));
