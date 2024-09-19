@@ -30,7 +30,6 @@ let configuration = {
     "baseBorrowSpeed": "0.0011458333333333333e15",
     "baseMinForRewards": "100e6"
   },
-  "rewardToken": "COMP",
   "assets": {}
 };
 
