@@ -4,7 +4,7 @@
       "assetSymbol": "cbETH",
       "pairName": "cbETH/USD",
       "decimals": 18,
-      "priceFeed": "0xF71Fa18B5401f8e0AB26f9F80ac3cdDe68C6Cdd2",
+      "priceFeed": "0x51D583bd64d3C8a191f65641a37CE3e5c7bB587D",
       "supplyCap": "500000e18",
       "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22"
     },
@@ -12,7 +12,7 @@
       "assetSymbol": "WETH",
       "pairName": "WETH/USD",
       "decimals": 18,
-      "priceFeed": "0x86313242dBfedD9C52733a0Ed384E917424A7436",
+      "priceFeed": "0x35877487EC25361dF5C11577A1d7C4cBaB8C1118",
       "supplyCap": "1000000e18",
       "address": "0x4200000000000000000000000000000000000006"
     },
@@ -20,11 +20,11 @@
       "assetSymbol": "wstETH",
       "pairName": "wstETH/USD",
       "decimals": 18,
-      "priceFeed": "0xe67Bd26330263b9830CD4E81e3faE298E8F5e487",
+      "priceFeed": "0xF200edFf719b0519eb3ced3cc05802D493A04ca8",
       "supplyCap": "1000000e18",
       "address": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"
     }
   ],
   "USDC": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-  "usdcApi3ReaderProxyV1": "0x773f1a8E77Bd9e91a84bD80Bf35e67e4989D5C4C"
+  "USDCPriceFeed": "0x5e03e9CeCA9277783A292B4cCDc959BA3A3c0126"
 }
