@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiProvider>
       <Head>
-        <title>API3 dAPI demo</title>
+        <title>API3 OEV Compound</title>
         <meta content="API3 Aave-v2" name="description" />
 
         {/* TODO: Fix the favicon */}
