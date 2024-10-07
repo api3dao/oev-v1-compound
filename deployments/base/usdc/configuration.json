@@ -3,7 +3,7 @@
   "symbol": "cUSDCv3",
   "baseToken": "USDC",
   "baseTokenAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-  "baseTokenPriceFeed": "0x5e03e9CeCA9277783A292B4cCDc959BA3A3c0126",
+  "baseTokenPriceFeed": "0x6c3594704165F4c0481eF65AC8c8c521F445F83d",
   "pauseGuardian": "0x008a4C5448ac1Df676d6F39A0C6F13b21b189389",
   "borrowMin": "1e0",
   "storeFrontPriceFactor": 0.5,
@@ -26,7 +26,7 @@
   },
   "assets": {
     "cbETH": {
-      "priceFeed": "0x51D583bd64d3C8a191f65641a37CE3e5c7bB587D",
+      "priceFeed": "0xC22b5BB8B67aA0f7786aD11656c6F07a06e43e03",
       "decimals": 18,
       "borrowCF": 0.75,
       "liquidateCF": 0.7501,
@@ -35,7 +35,7 @@
       "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22"
     },
     "WETH": {
-      "priceFeed": "0x35877487EC25361dF5C11577A1d7C4cBaB8C1118",
+      "priceFeed": "0xB23ECF2942e27c36B30f01D0c82D6ecF312BfA75",
       "decimals": 18,
       "borrowCF": 0.75,
       "liquidateCF": 0.7501,
@@ -44,7 +44,7 @@
       "address": "0x4200000000000000000000000000000000000006"
     },
     "wstETH": {
-      "priceFeed": "0xF200edFf719b0519eb3ced3cc05802D493A04ca8",
+      "priceFeed": "0xB3843849Be92B7d28164eec6e923227fA44C018d",
       "decimals": 18,
       "borrowCF": 0.75,
       "liquidateCF": 0.7501,
