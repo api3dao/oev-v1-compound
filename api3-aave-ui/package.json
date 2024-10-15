@@ -28,7 +28,7 @@
     "dayjs": "^1.11.5",
     "ethers": "^5.5.4",
     "immer": "^9.0.15",
-    "next": "^13.4.19",
+    "next": "^14.2.10",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "react": "latest",
     "react-apexcharts": "^1.4.1",
